@@ -2,8 +2,13 @@
 The coupled dynamic response of a suspension bridge to wind turbulence is computed in the time domain
 
 [![View Buffeting response of a suspension bridge (time domain) on File Exchange](https://www.mathworks.com/matlabcentral/images/matlab-file-exchange.svg)](https://se.mathworks.com/matlabcentral/fileexchange/73436-buffeting-response-of-a-suspension-bridge-time-domain)
+[![DOI](https://zenodo.org/badge/249145922.svg)](https://zenodo.org/badge/latestdoi/249145922)
+
+## Summary
 
 The lateral, vertical and torsional response of a suspension is computed in the time domain using computed turbulent velocity time histories. The simplified Bridge model of the Lysefjord Bridge [1] is considered for the modelling of the structure. Turbulence is modelled using the Kaimal model [2]. The quasi-steady theory, as well as the strip assumption, are used. Modal coupling between the lateral, vertical and torsional motions are accounted for in the time-domain model.
+
+## Content
 
 The present submission contains:
 - The function dynaRespTD.m that computes the bridge response in the time domain (Non-linear  load + modal coupling)
@@ -11,8 +16,10 @@ The present submission contains:
 - An example file  that compares the time-domain approach with the frequency domain approach 
 - Various functions used for the example file, including simulation of correlated wind histories [3], computation of the bridge modal parameters [4], computation of the bridge response in the frequency domain [5].
 
-This is the first version of the submission. Several typos may still be present. Any suggestion, comment or question is welcomed.
-References
+Any suggestion, comment or question is welcomed.
+
+
+## References
 
 [1] Cheynet, E., Jakobsen, J. B., & Snæbjörnsson, J. (2016). Buffeting response of a suspension bridge in complex terrain. Engineering Structures, 128, 474-487.
 
