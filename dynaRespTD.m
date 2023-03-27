@@ -183,7 +183,7 @@ end
         A = (1./aDT2.*M+beta/aDT*C+K);
         B1 = F+M.*(1./aDT2*x0+1./aDT*dx0+(1/(2*alphaCoeff)-1)*ddx0);
         B2 = C.*(beta/aDT*x0+(beta/alphaCoeff-1).*dx0);
-        B3 = (beta/alphaCoeff-2)*dt/2*ddx0;
+        B3 = C.*((beta/alphaCoeff-2)*dt/2*ddx0);
         
         x1 = A\(B1+B2+B3);
         ddx1= 1/aDT2.*(x1-x0)-1/aDT.*dx0-(1/(2*alphaCoeff)-1).*ddx0;
