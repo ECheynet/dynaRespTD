@@ -1,3 +1,4 @@
+
 function [Do] = dynaRespTD_noCoupling(Bridge,u,w,t,DOF,varargin)
 % function [Do] = dynaRespTD_noCoupling(Bridge,u,w,t,DOF,varargin) Computes
 % the bridge displacement response from the bridge and turbulent wind
@@ -21,7 +22,6 @@ function [Do] = dynaRespTD_noCoupling(Bridge,u,w,t,DOF,varargin)
 %
 % Author: E. Cheynet - UiS/UiB - 23.11.2019
 %
-
 p = inputParser();
 p.CaseSensitive = false;
 p.addOptional('rho',1.25);
@@ -30,7 +30,6 @@ p.parse(varargin{:});
 % shorthen the variables name
 rho  = p.Results.rho ;
 k  = p.Results.k ;
-
 % shortened variable
 D = Bridge.D;
 B = Bridge.B;
@@ -44,19 +43,16 @@ phi = Bridge.phi;
 wn = Bridge.wn;
 zetaStruct = Bridge.zetaStruct;
 dt = median(diff(t));
-
 N = numel(t);
-
 % PREALLOCATION
 % Main loop
-meanU = nanmean(u);
+meanU = mean(u,'omitnan');
+u = detrend(u,'constant');
 [Nyy]= size(phi,3);
-
 Do = zeros(Nyy,N);
 Vo = zeros(Nyy,N);
 dummyVo = zeros(Nyy,1);
 dummyDo = zeros(Nyy,1);
-
 for idt=1:N
     [Fmodal,M,K,C] = getLoad_1DOF(DOF,Bridge,meanU,u(idt,:)',w(idt,:)',dummyDo,dummyVo);
     if idt ==1 % initial acceleration
@@ -70,13 +66,8 @@ for idt=1:N
     dummyDo = Do(:,idt);
     
 end
-
-
     function [Fmodal,M,K,C] = getLoad_1DOF(DOF,Bridge,meanU,u1,w1,Do,Vo)
-        
-        if round(abs(mean(u1(:))))== abs(mean(meanU(:)))
-            u1 = u1(:)'-meanU(:)';
-        end
+
         X = Bridge.y.*Bridge.L;
         CST = 1/2*B*meanU*rho;
         switch DOF
@@ -170,5 +161,4 @@ end
         Do = myPhi'*x2;
         Vo = myPhi'*dx2;
     end
-
 end

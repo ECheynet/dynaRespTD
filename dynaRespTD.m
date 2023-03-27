@@ -43,13 +43,13 @@ phi = Bridge.phi;
 wn = Bridge.wn;
 zetaStruct = Bridge.zetaStruct;
 
-if abs(nanmean(u(1,:)))<1e-4,    warning('u has a zero mean value');end
+if abs(mean(u(1,:),'omitnan'))<1e-4,    warning('u has a zero mean value');end
 
 % Maximal incidence angle accepted (radians)
-alphaMaxD = 0.45;
-alphaMinD = -0.45;
-alphaMax = 0.25;
-alphaMin = -0.25;
+alphaMaxD = 20*pi/180;
+alphaMinD = -20*pi/180;
+alphaMax = 20*pi/180;
+alphaMin = -20*pi/180;
 
 
 dt = median(diff(t));
