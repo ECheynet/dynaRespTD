@@ -170,7 +170,7 @@ end
         % options: default values
         inp = inputParser();
         inp.CaseSensitive = false;
-        inp.addOptional('alpha',1/4);
+        inp.addOptional('alpha',1/12);
         inp.addOptional('beta',1/2);
         inp.parse(varargin{:});
         % shorthen the variables name
