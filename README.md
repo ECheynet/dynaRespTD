@@ -1,4 +1,4 @@
-# dynaRespTD
+# Time-domain Buffeting response of a suspension bridge
 The coupled dynamic response of a suspension bridge to wind turbulence is computed in the time domain
 
 [![View Buffeting response of a suspension bridge (time domain) on File Exchange](https://www.mathworks.com/matlabcentral/images/matlab-file-exchange.svg)](https://se.mathworks.com/matlabcentral/fileexchange/73436-buffeting-response-of-a-suspension-bridge-time-domain)
